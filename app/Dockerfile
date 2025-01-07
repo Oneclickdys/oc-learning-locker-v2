@@ -1,7 +1,9 @@
-FROM debian:9
+FROM --platform=linux/arm64 node:8.17.0-jessie
 
-RUN apt-get update \
-    && apt-get install -y \
+RUN echo "deb http://archive.debian.org/debian jessie main" > /etc/apt/sources.list \
+    && echo "deb http://archive.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list \
+    && apt-get -o Acquire::Check-Valid-Until=false update \
+    && apt-get install -y --force-yes \
         wget \
         procps \
         curl \
@@ -13,11 +15,9 @@ RUN apt-get update \
         unzip \
         gettext-base \
         socat \
-    && wget -qO- https://deb.nodesource.com/setup_8.x | bash \
-    && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g yarn 
+RUN npm install -g yarn@1.22.4 --force
 
 # install LL app
 ENV LL_TAG=v2.8.2

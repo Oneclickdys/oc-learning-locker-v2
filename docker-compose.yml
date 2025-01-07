@@ -6,6 +6,8 @@ services:
         restart: unless-stopped
         volumes:
             - "${DATA_LOCATION}/mongo:/data/db"
+        ports:
+            - "27017:27017"
 
     redis:
         image: redis:4-alpine
@@ -91,4 +93,15 @@ services:
         ports:
             - "443:443"
             - "80:80"
+
+    mongo-express:
+        image: mongo-express:0.54
+        restart: unless-stopped
+        ports:
+            - "8081:8081"
+        environment:
+            - ME_CONFIG_MONGODB_SERVER=mongo
+            - ME_CONFIG_MONGODB_PORT=27017
+        depends_on:
+            - mongo
 
