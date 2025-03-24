@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 node:8.17.0-jessie
+FROM node:8.17.0-jessie
 
 RUN echo "deb http://archive.debian.org/debian jessie main" > /etc/apt/sources.list \
     && echo "deb http://archive.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list \
