@@ -39,7 +39,5 @@ RUN cp -r storage storage.template
 EXPOSE 3000 8080
 
 COPY env.template .env.template
-COPY entrypoint-common.sh entrypoint-common.sh
-COPY entrypoint-ui.sh entrypoint-ui.sh
 
 CMD ["node", "api/dist/server"]
