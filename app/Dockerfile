@@ -42,5 +42,4 @@ COPY env.template .env.template
 COPY entrypoint-common.sh entrypoint-common.sh
 COPY entrypoint-ui.sh entrypoint-ui.sh
 
-ENTRYPOINT ["./entrypoint-common.sh"]
-
+CMD ["node", "api/dist/server"]
