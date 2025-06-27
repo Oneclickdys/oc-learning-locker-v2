@@ -40,4 +40,4 @@ EXPOSE 3000 8080
 
 COPY env.template .env.template
 
-CMD ["node", "worker/dist/server.js"]
+CMD ["node", "worker/dist/server"]
