@@ -1,6 +1,5 @@
-version: '2'
-services:
 
+services:
     mongo:
         image: mongo:3.4
         restart: unless-stopped

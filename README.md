@@ -42,7 +42,7 @@ To configure adjust settings in .env:
 To run the services:
 
 ```
-docker-compose up
+docker compose up -d
 ```
 
 Open the site and accept non-trusted SSL/TLS certs (see below for trusted certs).
